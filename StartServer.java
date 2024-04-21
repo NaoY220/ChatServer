@@ -5,11 +5,18 @@ class Counter implements URLHandler {
   int num = 0;
   public String handleRequest(URI url) {
     System.out.println(url);
-    if (url.getPath().equals("/")) { return String.format("Number: %d", num); }
-    // FILL in the block below to match the behavior in the browser below!
-    else if (url.getPath().equals("/count")) {
-
-    } else {
+    if (url.getPath().equals("/add-message")){ 
+      String username;
+      String message;
+      if(url.contain("s=")){
+        username = url.substring(url.indexOf("s=")+1, url.indexOf("&"));
+      }
+      if(url.contain("&user="){
+        
+      }
+      return username + ", " + message;
+    }
+    else {
       return "Don't know what to do with that path!";
     }
   }
