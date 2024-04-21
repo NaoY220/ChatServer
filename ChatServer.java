@@ -4,8 +4,6 @@ import java.net.URI;
 //Lab report 2 Chat Server
 //If I enter like ".../add-message?s=<string>&user=<string>", the message will be displayed like : "string(user): string(s)"
 
-interface URLHandler { String handleRequest(URI url); }
-
 class Counter implements URLHandler {
   int num = 0;
   public String handleRequest(URI url) {
