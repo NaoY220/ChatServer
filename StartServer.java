@@ -9,10 +9,10 @@ class Counter implements URLHandler {
       String username;
       String message;
       if(url.contain("s=")){
-        username = url.substring(url.indexOf("s=")+1, url.indexOf("&"));
+        username = url.substring(url.indexOf("s=")+2, url.indexOf("&"));
       }
       if(url.contain("&user="){
-        
+        username = url.substring(url.indexOf("user=")+5, url.length()-1);
       }
       return username + ", " + message;
     }
