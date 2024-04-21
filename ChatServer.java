@@ -4,19 +4,19 @@ import java.net.URI;
 //Lab report 2 Chat Server
 //If I enter like ".../add-message?s=<string>&user=<string>", the message will be displayed like : "string(user): string(s)"
 
+interface URLHandler { String handleRequest(URI url); }
 
 class Counter implements URLHandler {
   int num = 0;
   public String handleRequest(URI url) {
     System.out.println(url);
     if (url.getPath().equals("/add-message")){ 
-      String username;
-      String message;
-      if(url.contain("s=")){
-        username = url.substring(url.indexOf("s=")+2, url.indexOf("&"));
+      String username="", message = "";
+      if(url.getPath().contains("s=")){
+        username = url.getPath().substring(url.getPath().indexOf("s=")+2, url.getPath().indexOf("&"));
       }
-      if(url.contain("&user="){
-        username = url.substring(url.indexOf("user=")+5, url.length()-1);
+      if(url.getPath().contains("&user=")){
+        username = url.getPath().substring(url.getPath().indexOf("user=")+5, url.getPath().length()-1);
       }
       return username + ": " + message;
     }
