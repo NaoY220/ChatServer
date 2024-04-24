@@ -8,24 +8,26 @@ class Handler implements URLHandler {
   
   public String handleRequest(URI url) {
     String username = "", message = "";
-    System.out.println(url);
+
     if (url.getPath().equals("/")) {
-        return "No request to the server!";
-    }
-    if (url.getPath().equals("/add-message")){ 
-        if(url.getPath().contains("s=")){
-            username = url.getPath().substring(url.getPath().indexOf("s=")+2, url.getPath().indexOf("&"));
-        }
-        if(url.getPath().contains("&user=")){
-            username = url.getPath().substring(url.getPath().indexOf("user=")+5, url.getPath().length()-1);
-        }
-        return username + ": " + message + "\n";
-    }
+        return String.format("%s: %s", username, message);
+    } 
     else {
-        return "Enter the valid path!\n";
+        if (url.getPath().contains("/add-message")) {
+            String[] strs = url.getQuery().split("=");
+            if (strs[0].equals("s")) {
+                message = strs[1];
+                return String.format("%s: ", username);
+            }
+            if(strs[2].equals("user")){
+                user = strs[3]
+                return String.format("%s\n", username);
+            }
+        }
+        return "Enter the valid path!\";
     }
-  }
 }
+
 class ChatServer {
   public static void main(String[] args) throws IOException {
       if(args.length == 0){
