@@ -20,11 +20,12 @@ class Handler implements URLHandler {
                 return String.format("%s: ", username);
             }
             if(strs[2].equals("user")){
-                user = strs[3];
+                username = strs[3];
                 return String.format("%s\n", username);
             }
         }
-        return "Enter the valid path!\";
+        return "Enter the valid path!\n";
+        }
     }
 }
 
