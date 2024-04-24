@@ -20,7 +20,7 @@ class Counter implements URLHandler {
         if(url.getPath().contains("&user=")){
             username = url.getPath().substring(url.getPath().indexOf("user=")+5, url.getPath().length()-1);
         }
-        return username + ": " + message;
+        return username + ": " + message + "\n";
     }
     else {
         return "Enter the valid path!";
