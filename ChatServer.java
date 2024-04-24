@@ -20,7 +20,7 @@ class Handler implements URLHandler {
                 return String.format("%s: ", username);
             }
             if(strs[2].equals("user")){
-                user = strs[3]
+                user = strs[3];
                 return String.format("%s\n", username);
             }
         }
