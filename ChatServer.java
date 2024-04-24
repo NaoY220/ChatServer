@@ -22,7 +22,7 @@ class Handler implements URLHandler {
         return username + ": " + message + "\n";
     }
     else {
-        return "Enter the valid path!";
+        return "Enter the valid path!\n";
     }
   }
 }
