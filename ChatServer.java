@@ -6,8 +6,12 @@ import java.net.URI;
 
 class Counter implements URLHandler {
   int num = 0;
+  
   public String handleRequest(URI url) {
     System.out.println(url);
+    if (url.getPath().equals("/")) {
+      return "No request to the server!";
+    }
     if (url.getPath().equals("/add-message")){ 
       String username="", message = "";
       if(url.getPath().contains("s=")){
